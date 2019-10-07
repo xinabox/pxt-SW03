@@ -1,1 +1,5 @@
-# pxt-SW03
+## Supported targets
+
+* PXT/microbit
+* PXT/CC03
+* PXT/CS11
