@@ -268,8 +268,7 @@ namespace SW03 {
     }
 
     //% block="SW03 barometer mode"
-    //% group="Optional"
-    //% advanced=true
+    //% group="On Start"
     //% weight=74 blockGap=8
     export function setModeBarometer(): void {
         let tempSetting = getreg(CTRL_REG1); //Read current settings
@@ -278,8 +277,7 @@ namespace SW03 {
     }
 
     //% block="SW03 altimeter mode"
-    //% group="Optional"
-    //% advanced=true
+    //% group="On Start"
     //% weight=74 blockGap=8
     export function setModeAltimeter(): void {
 
@@ -290,7 +288,6 @@ namespace SW03 {
 
     //% block="SW03 standby mode"
     //% group="Optional"
-    //% advanced=true
     //% weight=74 blockGap=8
     export function setModeStandby(): void {
         let tempSetting = getreg(CTRL_REG1); //Read current settings
@@ -300,7 +297,6 @@ namespace SW03 {
 
     //% block="SW03 active mode"
     //% group="Optional"
-    //% advanced=true
     //% weight=74 blockGap=8
     export function setModeActive(): void {
         let tempSetting = getreg(CTRL_REG1); //Read current settings
