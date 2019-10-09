@@ -1,9 +1,10 @@
 {
     "name": "SW03",
-    "version": "1.0.0",
-    "description": "XinaBox SW03 weather sensor: Pressure, Temperature and Humidity",
+    "version": "1.0.1",
+    "description": "XinaBox SW03 weather sensor: Pressure and Temperature",
     "authors": [
-        "Luqmaan Baboo"
+        "Luqmaan Baboo",
+        "Bjarke Gotfredsen"
     ],
     "license": "MIT",
     "dependencies": {
