@@ -271,6 +271,8 @@ namespace SW03 {
     //% group="On Start"
     //% weight=74 blockGap=8
     export function setModeBarometer(): void {
+        setOversampleRate(7);
+        enableEventFlags();
         let tempSetting = getreg(CTRL_REG1); //Read current settings
         tempSetting &= ~(1 << 7); //Clear ALT bit
         setreg(CTRL_REG1, tempSetting);
