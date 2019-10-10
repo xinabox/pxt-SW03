@@ -117,16 +117,8 @@ namespace SW03 {
         }
         return tempbuf;
     }
-
-    /**
-     * The density altitude in meter or feet
-     * https://en.wikipedia.org/wiki/Density_altitude
-     * @param u the density altitude unit
-     */
-    //% block="SW03 altitude %u"
-    //% group="Variables"
-    //% weight=74 blockGap=8
-    export function altitude(u: Length): number {
+    
+    function altitude(u: Length): number {
         toggleOneShot(); //Toggle the OST bit causing the sensor to immediately take another reading
 
         //Wait for PDR bit, indicates we have new pressure data
@@ -266,22 +258,16 @@ namespace SW03 {
         if (u == Temperature.Celcius) return Math.roundWithPrecision(temperature, 2);
         else return Math.roundWithPrecision(32 + temperature * 9 / 5, 2);
     }
-
-    //% block="SW03 barometer mode"
-    //% group="On Start"
-    //% weight=74 blockGap=8
-    export function setModeBarometer(): void {
+    
+    function setModeBarometer(): void {
         setOversampleRate(7);
         enableEventFlags();
         let tempSetting = getreg(CTRL_REG1); //Read current settings
         tempSetting &= ~(1 << 7); //Clear ALT bit
         setreg(CTRL_REG1, tempSetting);
     }
-
-    //% block="SW03 altimeter mode"
-    //% group="On Start"
-    //% weight=74 blockGap=8
-    export function setModeAltimeter(): void {
+    
+    function setModeAltimeter(): void {
 
         let tempSetting = getreg(CTRL_REG1); //Read current settings
         tempSetting |= (1 << 7); //Set ALT bit
@@ -306,11 +292,7 @@ namespace SW03 {
         setreg(CTRL_REG1, tempSetting);
     }
 
-    //% block="SW03 oversample rate %u"
-    //% group="Optional"
-    //% advanced=true
-    //% weight=74 blockGap=8
-    export function setOversampleRate(sampleRate: number): void {
+    function setOversampleRate(sampleRate: number): void {
         if (sampleRate > 7) sampleRate = 7; //OS cannot be larger than 0b.0111
         sampleRate <<= 3; //Align it for the CTRL_REG1 register
 
@@ -319,12 +301,8 @@ namespace SW03 {
         tempSetting |= sampleRate; //Mask in new OS bits
         setreg(CTRL_REG1, tempSetting);
     }
-
-    //% block="SW03 enable event flags"
-    //% group="Optional"
-    //% advanced=true
-    //% weight=74 blockGap=8  
-    export function enableEventFlags(): void {
+    
+    function enableEventFlags(): void {
         setreg(PT_DATA_CFG, 0x07); // Enable all three pressure and temp event flags 
     }
 
@@ -338,5 +316,5 @@ namespace SW03 {
         setreg(CTRL_REG1, tempSetting);
     }
 
-    setOversampleRate(7);
+    setModeBarometer();
 }
