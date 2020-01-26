@@ -125,7 +125,7 @@ namespace SW03 {
         let counter = 0;
         while ((getreg(STATUS) & (1 << 1)) == 0) {
             if (++counter > 600) return (-999); //Error out after max of 512ms for a read
-            pause(1);
+            basic.pause(1);
         }
 
         let res: number[] = readBlock(OUT_P_MSB, 3)
@@ -184,7 +184,7 @@ namespace SW03 {
         let counter = 0;
         while ((getreg(STATUS) & (1 << 2)) == 0) {
             if (++counter > 600) return (-999); //Error out after max of 512ms for a read
-            pause(1);
+            basic.pause(1);
         }
 
         let res: number[] = readBlock(OUT_P_MSB, 3)
@@ -222,7 +222,7 @@ namespace SW03 {
         let counter = 0;
         while ((getreg(STATUS) & (1 << 1)) == 0) {
             if (++counter > 600) return (-999); //Error out after max of 512ms for a read
-            pause(1);
+            basic.pause(1);
         }
 
         let res: number[] = readBlock(OUT_T_MSB, 2)
