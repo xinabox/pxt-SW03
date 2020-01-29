@@ -1,14 +1,15 @@
 {
     "name": "SW03",
     "version": "1.0.1",
-    "description": "XinaBox SW03 weather sensor: Pressure and Temperature",
+    "description": "XinaBox SW03 Weather sensor: Pressure and Temperature",
     "authors": [
         "Luqmaan Baboo",
         "Bjarke Gotfredsen"
     ],
     "license": "MIT",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "xinabox-cs11": "*"
     },
     "files": [
         "README.md",
@@ -18,5 +19,5 @@
         "test.ts"
     ],
     "public": true,
-    "preferredEditor": "tsprj"
+	"preferredEditor": "blocksprj"
 }
